@@ -16,7 +16,7 @@ public class Comment {
 
     @Id
     private String id;
-    private int beachId;
+    private String beachId;
     private String author;
     private String comment;
     private int rating;

@@ -13,14 +13,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CommentController {
 
-    private CommentService commentService;
+    private final CommentService commentService;
 
     @GetMapping("/beach/{beachId}")
-    public ResponseEntity<List<Comment>> getCommentsByBeachId(@PathVariable int beachId) {
-        return ResponseEntity.ok(commentService.getCommentByBeachId(beachId));
+    public ResponseEntity<List<Comment>> getCommentsByBeachId(@PathVariable String beachId) {
+        return ResponseEntity.ok(commentService.getCommentByBeachId((beachId)));
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<Comment> addComment(@RequestBody Comment comment) {
         return ResponseEntity.ok(commentService.addComment(comment));
     }

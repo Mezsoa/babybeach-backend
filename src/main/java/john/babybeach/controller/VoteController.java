@@ -13,13 +13,13 @@ public class VoteController {
     private final VoteService voteService;
 
     @GetMapping("/beach/{beachId}")
-    public ResponseEntity<Vote> getVotesByBeachId(@PathVariable int beachId) {
+    public ResponseEntity<Vote> getVotesByBeachId(@PathVariable String beachId) {
         return ResponseEntity.ok(voteService.getVotesByBeachId(beachId));
     }
 
     @PostMapping("/beach/{beachId}")
     public ResponseEntity<Vote> vote(
-            @PathVariable int beachId,
+            @PathVariable String beachId,
             @RequestParam boolean isUpvote) {
         return ResponseEntity.ok(voteService.vote(beachId, isUpvote));
     }

@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class VoteService {
 
-    private VoteRepository voteRepository;
+    private final VoteRepository voteRepository;
 
-    public Vote getVotesByBeachId(int beachId) {
+
+    public Vote getVotesByBeachId(String beachId) {
         return voteRepository.findByBeachId(beachId).orElse(new Vote(beachId, 0, 0));
     }
 
-    public Vote vote(int beachId, boolean isUpvote) {
+    public Vote vote(String beachId, boolean isUpvote) {
         Vote vote = voteRepository.findByBeachId(beachId)
                 .orElse(new Vote(beachId, 0, 0));
 
